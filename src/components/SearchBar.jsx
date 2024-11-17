@@ -1,18 +1,21 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
-  const {handleSearch} = useContext(AuthContext);
+  const { handleSearch } = useContext(AuthContext);
   const [query, setQuery] = useState("");
-  
 
+  const navigate = useNavigate();
   const handleSubmit = async () => {
+    if (query.trim() === "") {
+      alert("Please enter a search query");
+      return;
+    }
     await handleSearch(query);
-    setQuery("")
-  } 
-  
- 
+    setQuery("");
+    navigate("/search");
+  };
 
   return (
     <div className="flex mb-4">

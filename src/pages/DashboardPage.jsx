@@ -5,7 +5,6 @@ import SearchBar from "../components/SearchBar";
 
 const Dashboard = () => {
   const {cars } = useContext(AuthContext);
-
   return (
     <div className="p-4">
       <SearchBar  />

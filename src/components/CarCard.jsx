@@ -7,19 +7,17 @@ const CarCard = ({ car }) => {
       : car?.description;
 
   return (
-    <div className="border p-4">
+    <div className="border-2 p-4 border-l-red-300 border-r-blue-300 shadow-lg ">
       <Link to={`/cars/${car?._id}`}>
-        <h2 className="text-lg">{car.title}</h2>
+        <h2 className="text-lg font-bold mb-2">{car.title}</h2>
+        <hr />
         <p>{truncatedDescription}</p>
         <div className="flex flex-wrap">
-          {car?.images?.map((img, idx) => (
-            <img
-              key={idx}
-              src={img?.url}
-              alt={car.title}
-              className="w-20 h-20 object-cover"
-            />
-          ))}
+          <img
+            src={car?.images[0]?.url}
+            alt={car.title}
+            className="w-200 object-cover"
+          />
         </div>
       </Link>
     </div>

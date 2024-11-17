@@ -6,6 +6,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [cars, setCars] = useState([]);
+  const [searchedcars, setSearchedCars] = useState([]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("token");
@@ -75,7 +76,7 @@ export const AuthProvider = ({ children }) => {
         }
       );
       console.log("search", res?.data?.cars);
-      setCars(res?.data?.cars);
+      setSearchedCars(res?.data?.cars);
     } catch (err) {
       console.error(err);
     }
@@ -146,13 +147,14 @@ export const AuthProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         signup,
-        createCar,
-        updateCar,
-        deleteCar,
         user,
         login,
         logout,
         cars,
+        searchedcars,
+        createCar,
+        updateCar,
+        deleteCar,
         handleSearch,
         fetchCar,
       }}

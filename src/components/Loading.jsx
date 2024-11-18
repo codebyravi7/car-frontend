@@ -16,8 +16,14 @@ const LoadingPage = () => {
           {/* Animated Lines beneath the car */}
           <div className="flex justify-center gap-1 mt-2">
             <div className="w-8 h-1 bg-blue-400 rounded-full animate-pulse" />
-            <div className="w-8 h-1 bg-blue-500 rounded-full animate-pulse delay-75" />
-            <div className="w-8 h-1 bg-blue-600 rounded-full animate-pulse delay-150" />
+            <div
+              className="w-8 h-1 bg-blue-500 rounded-full animate-pulse"
+              style={{ animationDelay: "0.075s" }}
+            />
+            <div
+              className="w-8 h-1 bg-blue-600 rounded-full animate-pulse"
+              style={{ animationDelay: "0.15s" }}
+            />
           </div>
         </div>
 
@@ -28,7 +34,7 @@ const LoadingPage = () => {
 
         {/* Loading Message */}
         <p className="text-blue-600 text-sm animate-pulse">
-          Please wait while we Do the magic...
+          Please wait while we do the magic...
         </p>
 
         {/* Loading Progress Bar */}
@@ -37,7 +43,7 @@ const LoadingPage = () => {
         </div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         @keyframes loading-progress {
           0% {
             width: 0%;
